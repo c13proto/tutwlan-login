@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.idry7lash629.tutwlan_login.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/URL"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:text="https://netar2.imc.tut.ac.jp/upload/custom/tutwlan_cap/tutwlan-login.html"
+            android:password="false"
+            android:textSize="10dp"
+            android:layout_toStartOf="@+id/toggleButton" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Name"
+            android:ems="10"
+            android:id="@+id/Name"
+            android:layout_below="@+id/URL"
+            android:layout_alignParentStart="true"
+            android:textSize="10dp"
+            android:layout_toStartOf="@+id/Button" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/Pass"
+            android:textSize="10dp"
+            android:layout_below="@+id/Name"
+            android:layout_alignParentStart="true"
+            android:layout_alignEnd="@+id/Name" />
+
+        <Button
+            android:onClick="OnClick_実行"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="実行"
+            android:id="@+id/Button"
+            android:textSize="10dp"
+            android:layout_below="@+id/URL"
+            android:layout_alignBottom="@+id/Pass"
+            android:layout_toStartOf="@+id/button" />
+
+        <Button
+            android:onClick="OnClick_更新"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="更新"
+            android:id="@+id/button"
+            android:textSize="10dp"
+            android:layout_below="@+id/URL"
+            android:layout_alignParentEnd="true"
+            android:layout_alignBottom="@+id/Button" />
+
+        <ToggleButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New ToggleButton"
+            android:id="@+id/toggleButton"
+            android:textOff="link1"
+            android:textOn="link2"
+            android:textSize="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_above="@+id/Button" />
+
+        <WebView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/webView"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/Pass" />
+
+        <requestFocus
+            android:layout_alignTop="@+id/webView"
+            android:layout_alignEnd="@+id/URL"
+            android:layout_marginEnd="47dp"
+            android:layout_marginTop="55dp" />
+
+    </RelativeLayout>
+</RelativeLayout>
