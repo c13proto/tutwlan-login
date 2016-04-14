@@ -23,80 +23,64 @@
             android:layout_alignParentStart="true"
             android:text="https://netar2.imc.tut.ac.jp/upload/custom/tutwlan_cap/tutwlan-login.html"
             android:password="false"
-            android:textSize="10dp"
+            android:focusable="False"
+            android:inputType="text"
             android:layout_toStartOf="@+id/toggleButton" />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/ID"
             android:inputType="textPersonName"
-            android:text="Name"
-            android:ems="10"
-            android:id="@+id/Name"
+            android:width="7sp"
+            android:hint="ID"
             android:layout_below="@+id/URL"
             android:layout_alignParentStart="true"
-            android:textSize="10dp"
-            android:layout_toStartOf="@+id/Button" />
+            android:layout_toStartOf="@+id/toggleButton"
+            android:layout_alignEnd="@+id/Pass" />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:ems="10"
             android:id="@+id/Pass"
-            android:textSize="10dp"
-            android:layout_below="@+id/Name"
-            android:layout_alignParentStart="true"
-            android:layout_alignEnd="@+id/Name" />
+            android:hint="Password"
+            android:layout_below="@+id/ID"
+            android:layout_alignParentStart="true" />
 
         <Button
             android:onClick="OnClick_実行"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="実行"
+            android:textSize="40dp"
             android:id="@+id/Button"
-            android:textSize="10dp"
+            android:focusable="False"
             android:layout_below="@+id/URL"
             android:layout_alignBottom="@+id/Pass"
-            android:layout_toStartOf="@+id/button" />
-
-        <Button
-            android:onClick="OnClick_更新"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="更新"
-            android:id="@+id/button"
-            android:textSize="10dp"
-            android:layout_below="@+id/URL"
             android:layout_alignParentEnd="true"
-            android:layout_alignBottom="@+id/Button" />
+            android:layout_toEndOf="@+id/ID" />
 
         <ToggleButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New ToggleButton"
             android:id="@+id/toggleButton"
-            android:textOff="link1"
-            android:textOn="link2"
-            android:textSize="10dp"
+            android:textOff="ref2"
+            android:textOn="ref1"
+            android:focusable="False"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_above="@+id/Button" />
+            android:layout_alignBottom="@+id/URL" />
 
         <WebView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/webView"
+            android:layout_below="@+id/Pass"
             android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-            android:layout_below="@+id/Pass" />
+            android:layout_alignParentBottom="true" />
 
-        <requestFocus
-            android:layout_alignTop="@+id/webView"
-            android:layout_alignEnd="@+id/URL"
-            android:layout_marginEnd="47dp"
-            android:layout_marginTop="55dp" />
 
     </RelativeLayout>
 </RelativeLayout>

@@ -26,7 +26,7 @@ import java.util.TimerTask;
 public class MainActivity extends AppCompatActivity {
     static SharedPreferences SP;
     static WebView tut;
-    static String tut_url = "https://netar2.imc.tut.ac.jp/upload/custom/tutwlan_cap/tutwlan-login.html";
+    static String tut_url = "https://netar2.imc.tut.ac.jp/upload/custom/tutwlan_cap/tutwlan-login.html";//upload/custom/tutwlan_cap/tutwlan-login.html
     Timer timer;
     int 読み込み時間 = 0;
     boolean 読み込み中 = false;
@@ -55,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
                 dispatchKeyEvent(new KeyEvent(eventTime, eventTime, KeyEvent.ACTION_MULTIPLE, KeyEvent.KEYCODE_TAB, 1, 0));
 
             }
-
             @Override
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
                 Log.e("onRecieve", "error");
@@ -70,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
                 //tut.loadUrl(tut_url);
             }
         });
+        tut.requestFocus();
 
         //SharedPreferenceの準備
         SP=getSharedPreferences("dictionary_sp", Context.MODE_PRIVATE);
@@ -84,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
                else tut_url="https://netar2.imc.tut.ac.jp/upload/custom/tutwlan_cap/tutwlan-login.html";
 
                 ((EditText)findViewById(R.id.URL)).setText(tut_url);
+                Log.d("button","トグル");
+                tut.loadUrl(((EditText)findViewById(R.id.URL)).getText().toString());
             }
         });
 
@@ -106,21 +108,10 @@ public class MainActivity extends AppCompatActivity {
         実行コマンド();
     }
 
-    public void OnClick_更新(View view)
-    {
-        更新コマンド();
-    }
 
-
-
-    void 更新コマンド()
-    {
-        Log.d("button","更新");
-        tut.loadUrl(((EditText)findViewById(R.id.URL)).getText().toString());
-    }
     void 実行コマンド()
     {
-        String ID=((EditText)findViewById(R.id.Name)).getText().toString();
+        String ID=((EditText)findViewById(R.id.ID)).getText().toString();
         String Pass=((EditText)findViewById(R.id.Pass)).getText().toString();
         Log.d("button","実行");
 
@@ -131,11 +122,12 @@ public class MainActivity extends AppCompatActivity {
         eventTime = SystemClock.uptimeMillis();
         dispatchKeyEvent(new KeyEvent( eventTime, eventTime, KeyEvent.ACTION_DOWN , KeyEvent.KEYCODE_TAB, 1, 0 ));
         eventTime = SystemClock.uptimeMillis();
+
         dispatchKeyEvent(new KeyEvent( eventTime, eventTime, KeyEvent.ACTION_DOWN , KeyEvent.KEYCODE_ENTER, 1, 0 ));
     }
     @SuppressLint("NewApi") void 辞書をコミット(){
         //String URL=((EditText)findViewById(R.id.EditText_URL)).getText().toString();
-        String ID=((EditText)findViewById(R.id.Name)).getText().toString();
+        String ID=((EditText)findViewById(R.id.ID)).getText().toString();
         String Pass=((EditText)findViewById(R.id.Pass)).getText().toString();
 
         SharedPreferences.Editor editor=SP.edit();
@@ -153,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
         //if(URL.equals(""))URL=tut_url;
         //Log.d("辞書を読み込み",URL);
         //((EditText)findViewById(R.id.EditText_URL)).setText(URL);
-        ((EditText)findViewById(R.id.Name)).setText(ID);
+        ((EditText)findViewById(R.id.ID)).setText(ID);
         ((EditText)findViewById(R.id.Pass)).setText(Pass);
     }
     /*
